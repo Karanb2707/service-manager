@@ -1,0 +1,86 @@
+[
+  {
+    "id": 1,
+    "title": "5 Benefits of Aromatherapy",
+    "excerpt": "Discover how aromatherapy can reduce stress and improve sleep...",
+    "content": "Aromatherapy uses essential oils to relax the mind and body. It can improve mood, reduce anxiety, enhance sleep quality, and even boost focus. Regular practice creates a calming environment and supports overall well-being.",
+    "image": "/images/blog1.png"
+  },
+  {
+    "id": 2,
+    "title": "Why Yoga Improves Productivity",
+    "excerpt": "Yoga is more than exercise – it boosts focus and energy...",
+    "content": "Practicing yoga daily can enhance concentration and energy levels. It reduces stress, eases tension in the muscles, and promotes mental clarity. This combination makes you more productive both at work and in daily life.",
+    "image": "/images/blog2.png"
+  },
+  {
+    "id": 3,
+    "title": "Top 10 Spa Treatments in 2025",
+    "excerpt": "Check out the most popular spa treatments people love...",
+    "content": "From massages to facials, these treatments rejuvenate both body and mind. Trending spa experiences include aromatherapy, hot stone massage, and detox therapies. They help improve circulation, reduce stress, and leave you feeling refreshed.",
+    "image": "/images/blog3.png"
+  },
+  {
+    "id": 4,
+    "title": "Massage vs Meditation",
+    "excerpt": "Which one is better for stress relief?",
+    "content": "Both massage and meditation are effective stress relievers but work differently. Massage eases muscle tension and stimulates circulation, while meditation calms the mind and enhances focus. Combining both can maximize relaxation and mental wellness.",
+    "image": "/images/blog4.png"
+  },
+  {
+    "id": 5,
+    "title": "Glowing Skin Secrets",
+    "excerpt": "Natural remedies for healthy skin...",
+    "content": "Radiant skin comes from consistent care. Hydration, balanced diet, and gentle skincare routines are key. Incorporating natural remedies like aloe vera or honey masks can improve texture, glow, and overall skin health.",
+    "image": "/images/blog5.png"
+  },
+  {
+    "id": 6,
+    "title": "How Sauna Helps Detox",
+    "excerpt": "The science behind heat therapy...",
+    "content": "Saunas promote sweating, which helps eliminate toxins from the body. Heat therapy also improves circulation, relaxes muscles, and supports heart health. Regular sauna sessions contribute to both physical and mental relaxation.",
+    "image": "/images/blog6.png"
+  },
+  {
+    "id": 7,
+    "title": "Hair Spa Benefits",
+    "excerpt": "Strengthen and nourish your hair...",
+    "content": "Hair spa treatments hydrate and repair damaged hair. They stimulate scalp circulation, strengthen hair roots, and improve texture. Regular hair spa sessions can prevent hair fall, reduce dryness, and leave hair soft and shiny.",
+    "image": "/images/blog7.png"
+  },
+  {
+    "id": 8,
+    "title": "Daily Meditation Guide",
+    "excerpt": "Simple steps to practice meditation daily...",
+    "content": "Meditation helps calm the mind and improve focus. Even 10 minutes daily reduces stress, increases mindfulness, and boosts emotional well-being. Creating a simple routine can have long-term benefits for mental health.",
+    "image": "/images/blog8.png"
+  },
+  {
+    "id": 9,
+    "title": "Wellness Travel Spots",
+    "excerpt": "Top 5 destinations for relaxation...",
+    "content": "Traveling to wellness retreats helps recharge body and mind. Destinations offering spa treatments, yoga sessions, and nature immersion are ideal for relaxation. Such trips reduce stress, improve sleep, and restore energy.",
+    "image": "/images/blog9.png"
+  },
+  {
+    "id": 10,
+    "title": "Deep Tissue Massage Explained",
+    "excerpt": "Why it's great for athletes...",
+    "content": "Deep tissue massage targets tight muscles and chronic tension points. It improves flexibility, reduces pain, and accelerates recovery. Athletes benefit from better performance and reduced risk of injuries with regular sessions.",
+    "image": "/images/blog10.png"
+  },
+  {
+    "id": 11,
+    "title": "Skincare Mistakes to Avoid",
+    "excerpt": "Don’t ruin your skin unknowingly...",
+    "content": "Many people harm their skin with harsh cleansers or skipping sunscreen. Over-exfoliating or ignoring hydration causes damage. Following simple routines and avoiding common mistakes keeps skin healthy and glowing.",
+    "image": "/images/blog11.png"
+  },
+  {
+    "id": 12,
+    "title": "Yoga for Beginners",
+    "excerpt": "Easy poses to get started...",
+    "content": "Starting yoga can be intimidating, but simple daily poses improve flexibility and reduce stress. It also enhances balance, posture, and mental clarity. Beginners should start slow and maintain consistency for best results.",
+    "image": "/images/blog12.png"
+  }
+]

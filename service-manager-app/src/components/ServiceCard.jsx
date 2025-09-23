@@ -1,0 +1,14 @@
+export default function ServiceCard({ service }) {
+  return (
+    <div className="border border-gray-800 bg-black p-6 rounded-lg shadow-md hover:shadow-cyan-400 transition-colors duration-300">
+      <img 
+        src={service.image} 
+        alt={service.title} 
+        className="w-full h-40 object-cover rounded border border-gray-700" 
+      />
+      <h2 className="text-lg font-bold mt-4 text-cyan-400">{service.title}</h2>
+      <p className="text-gray-300 mt-2">{service.description}</p>
+      <p className="font-semibold mt-3 text-cyan-300">{service.price}</p>
+    </div>
+  )
+}

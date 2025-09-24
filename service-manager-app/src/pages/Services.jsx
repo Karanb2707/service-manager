@@ -6,13 +6,28 @@ export default function Services() {
   const [query, setQuery] = useState("")
   const [category, setCategory] = useState("")
 
+  // Local JSON Data
+  // useEffect(() => { 
+  //   fetch("/services.json").then(res=>res.json()).then(setServices) 
+  // }, [])
+
+  // const filtered = services.filter(s =>
+  //   (s.title.toLowerCase().includes(query.toLowerCase()) || s.description.toLowerCase().includes(query.toLowerCase())) &&
+  //   (category ? s.category === category : true)
+  // )
+
+  // Fetch from WordPress REST API
   useEffect(() => { 
-    fetch("/services.json").then(res=>res.json()).then(setServices) 
+    fetch("http://httplocalhost10005.local/wp-json/wp/v2/services")
+      .then(res => res.json())
+      .then(data => setServices(data))
   }, [])
 
+  // Filter services for wordpress
   const filtered = services.filter(s =>
-    (s.title.toLowerCase().includes(query.toLowerCase()) || s.description.toLowerCase().includes(query.toLowerCase())) &&
-    (category ? s.category === category : true)
+    ((s.title.rendered.toLowerCase().includes(query.toLowerCase())) ||
+     (s.acf.description.toLowerCase().includes(query.toLowerCase()))) &&
+    (category ? s.acf.category === category : true)
   )
 
   return (

@@ -44,8 +44,8 @@ export default function ContactForm() {
             placeholder="Message"
             value={form.message}
             onChange={handleChange}
-            rows="3"
-            className="w-full p-2 rounded-lg bg-gray-900 border border-gray-700 focus:border-cyan-400 focus:ring-1 focus:ring-cyan-400 outline-none"
+            rows="2"
+            className="w-full p-2 rounded-lg bg-gray-900 border border-gray-700 focus:border-cyan-400 focus:ring-1 focus:ring-cyan-400 outline-none resize-none"
             required
           />
 

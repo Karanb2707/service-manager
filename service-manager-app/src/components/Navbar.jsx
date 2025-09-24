@@ -17,7 +17,7 @@ export default function Navbar() {
 
       {/* Desktop Menu */}
       <div className="hidden md:flex gap-10">
-        <NavLink to="/" className={linkClasses}>
+        <NavLink to="/" className={linkClasses} end>
           Home
         </NavLink>
         <NavLink to="/services" className={linkClasses}>
@@ -59,6 +59,7 @@ export default function Navbar() {
           <div className="flex flex-col gap-4 p-6">
             <NavLink
               to="/"
+              end
               className={({ isActive }) =>
                 `transition-all duration-300 font-medium py-2 border-b border-gray-600 hover:text-cyan-400 ${
                   isActive ? 'text-cyan-400' : ''

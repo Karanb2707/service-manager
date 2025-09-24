@@ -49,7 +49,7 @@ export default function ContactForm() {
             required
           />
           <div className="my-2 flex justify-center">
-            <div className="transform scale-90 sm:scale-100">
+            <div className="transform scale-80 md:scale-100">
               <ReCAPTCHA
                 sitekey="6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI"
                 onChange={() => setCaptchaVerified(true)}

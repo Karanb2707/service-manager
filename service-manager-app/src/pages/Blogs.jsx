@@ -38,6 +38,10 @@ export default function Blogs() {
       })
   }, [])
 
+  const filtered = blogs.filter(b =>
+    b.title.rendered.toLowerCase().includes(query.toLowerCase())
+  )
+
   return (
     <div className="min-h-screen bg-black p-6 pt-20">
       <div className="max-w-7xl mx-auto">

@@ -47,7 +47,7 @@ export default function Contact() {
           </div>
           
           {/* Contact Form */}
-          <div className="bg-gray-900 border border-gray-800 rounded-lg p-8 shadow-xl">
+          <div className="bg-gray-900 border border-gray-800 rounded-lg p-4 shadow-xl">
             <h2 className="text-xl font-bold text-cyan-400 mb-6">Send Message</h2>
             <ContactForm />
           </div>

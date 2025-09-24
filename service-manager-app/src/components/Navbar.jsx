@@ -55,7 +55,7 @@ export default function Navbar() {
 
       {/* Mobile Menu */}
       {isOpen && (
-        <div className="absolute top-20 left-0 w-full bg-gradient-to-r from-indigo-900 via-purple-900 to-pink-900 shadow-2xl md:hidden">
+        <div className="absolute top-20 left-0 w-full bg-black shadow-2xl md:hidden">
           <div className="flex flex-col gap-4 p-6">
             <NavLink
               to="/"

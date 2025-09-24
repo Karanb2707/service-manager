@@ -13,15 +13,27 @@ export default function Blogs() {
   // const filtered = blogs.filter(b => b.title.toLowerCase().includes(query.toLowerCase()))
 
   // For Wordpress API
+  // useEffect(() => {
+  //   fetch("http://httplocalhost10005.local/wp-json/wp/v2/posts?_embed")
+  //     .then(res => res.json())
+  //     .then(setBlogs)
+  // }, [])
+
+  // const filtered = blogs.filter(b =>
+  //   b.title.rendered.toLowerCase().includes(query.toLowerCase())
+  // )
+
+  // For TasteWP Wordpress API Prod
   useEffect(() => {
-    fetch("http://httplocalhost10005.local/wp-json/wp/v2/posts?_embed")
+    fetch("https://zealousrake.s2-tastewp.com/wp-json/wp/v2/posts?_embed")
       .then(res => res.json())
-      .then(setBlogs)
-  }, [])
+      .then(data => setBlogs(data))
+      .catch(err => console.error("Error fetching blogs:", err));
+  }, []);
 
   const filtered = blogs.filter(b =>
     b.title.rendered.toLowerCase().includes(query.toLowerCase())
-  )
+  );
 
   return (
     <div className="min-h-screen bg-black p-6 pt-20">

@@ -28,13 +28,15 @@ export default function Blogs() {
   useEffect(() => {
     fetch("https://zealousrake.s2-tastewp.com/wp-json/wp/v2/posts?_embed")
       .then(res => res.json())
-      .then(data => setBlogs(data))
-      .catch(err => console.error("Error fetching blogs:", err));
-  }, []);
-
-  const filtered = blogs.filter(b =>
-    b.title.rendered.toLowerCase().includes(query.toLowerCase())
-  );
+      .then(data => {
+        setBlogs(data)
+        setLoading(false)
+      })
+      .catch(err => {
+        console.error("Error fetching blogs:", err)
+        setLoading(false)
+      })
+  }, [])
 
   return (
     <div className="min-h-screen bg-black p-6 pt-20">

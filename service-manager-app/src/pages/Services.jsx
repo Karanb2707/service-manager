@@ -35,8 +35,14 @@ export default function Services() {
   useEffect(() => {
     fetch("https://zealousrake.s2-tastewp.com/wp-json/wp/v2/services?_embed")
       .then(res => res.json())
-      .then(data => setServices(data))
-      .catch(err => console.error("Failed to fetch services:", err));
+      .then(data => {
+        setServices(data);
+        setLoading(false);
+      })
+      .catch(err => {
+        console.error("Failed to fetch services:", err)
+        setLoading(false);
+      });
   }, []);
 
   // Filter services based on search query and category

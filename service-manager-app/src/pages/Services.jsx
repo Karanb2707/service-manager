@@ -17,18 +17,33 @@ export default function Services() {
   // )
 
   // Fetch from WordPress REST API
-  useEffect(() => { 
-    fetch("http://httplocalhost10005.local/wp-json/wp/v2/services")
+  // useEffect(() => { 
+  //   fetch("http://httplocalhost10005.local/wp-json/wp/v2/services")
+  //     .then(res => res.json())
+  //     .then(data => setServices(data))
+  // }, [])
+
+  // // Filter services for wordpress
+  // const filtered = services.filter(s =>
+  //   ((s.title.rendered.toLowerCase().includes(query.toLowerCase())) ||
+  //    (s.acf.description.toLowerCase().includes(query.toLowerCase()))) &&
+  //   (category ? s.acf.category === category : true)
+  // )
+
+  // Fetch from WordPress Prod
+  useEffect(() => {
+    fetch("https://zealousrake.s2-tastewp.com/wp-json/wp/v2/services?_embed")
       .then(res => res.json())
       .then(data => setServices(data))
-  }, [])
+      .catch(err => console.error("Failed to fetch services:", err));
+  }, []);
 
-  // Filter services for wordpress
+  // Filter services based on search query and category
   const filtered = services.filter(s =>
-    ((s.title.rendered.toLowerCase().includes(query.toLowerCase())) ||
-     (s.acf.description.toLowerCase().includes(query.toLowerCase()))) &&
-    (category ? s.acf.category === category : true)
-  )
+    ((s.title?.rendered.toLowerCase().includes(query.toLowerCase())) ||
+      (s.acf?.description?.toLowerCase().includes(query.toLowerCase()))) &&
+    (category ? s.acf?.category === category : true)
+  );
 
   return (
     <div className="min-h-screen bg-black p-6 pt-20">
@@ -36,18 +51,18 @@ export default function Services() {
         <h1 className="text-4xl font-bold text-center text-cyan-300 mb-6">
           Our Services
         </h1>
-        
+
         <div className="flex flex-col md:flex-row gap-4 mb-8 max-w-2xl mx-auto">
-          <input 
-            type="text" 
-            placeholder="Search services..." 
-            value={query} 
-            onChange={e=>setQuery(e.target.value)} 
+          <input
+            type="text"
+            placeholder="Search services..."
+            value={query}
+            onChange={e => setQuery(e.target.value)}
             className="bg-gray-900 border border-gray-700 text-white p-3 rounded-lg flex-1 focus:border-cyan-400 focus:outline-none transition-colors placeholder-gray-400"
           />
-          <select 
-            value={category} 
-            onChange={e=>setCategory(e.target.value)} 
+          <select
+            value={category}
+            onChange={e => setCategory(e.target.value)}
             className="w-fit text-center bg-gray-900 border border-gray-700 text-white p-3 rounded-lg focus:border-cyan-400 focus:outline-none transition-colors appearance-none"
           >
             <option value="">All Categories</option>

@@ -15,7 +15,6 @@ export default function Contact() {
 
             <div className="space-y-6">
               <div className="flex items-center gap-3">
-                <div className="w-10 h-10 bg-cyan-400 rounded-full flex items-center justify-center"></div>
                 <div>
                   <p className="text-gray-300">Email</p>
                   <p className="text-cyan-300">karan@egservicemanager.com</p>
@@ -23,7 +22,6 @@ export default function Contact() {
               </div>
 
               <div className="flex items-center gap-3">
-                <div className="w-10 h-10 bg-cyan-400 rounded-full flex items-center justify-center"></div>
                 <div>
                   <p className="text-gray-300">Phone</p>
                   <p className="text-cyan-300">+91 8425952505</p>
@@ -31,7 +29,6 @@ export default function Contact() {
               </div>
 
               <div className="flex items-center gap-3">
-                <div className="w-10 h-10 bg-cyan-400 rounded-full flex items-center justify-center"></div>
                 <div>
                   <p className="text-gray-300">Address</p>
                   <p className="text-cyan-300">123 Service St, Wellness City</p>
@@ -39,6 +36,7 @@ export default function Contact() {
               </div>
             </div>
           </div>
+
 
 
           {/* Contact Form */}

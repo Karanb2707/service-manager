@@ -5,10 +5,19 @@ export default function BlogDetails() {
   const { id } = useParams()
   const [blog, setBlog] = useState(null)
 
+  // For Local Wordpress
+  // useEffect(() => {
+  //   fetch(`http://httplocalhost10005.local/wp-json/wp/v2/posts/${id}?_embed`)
+  //     .then(res => res.json())
+  //     .then(setBlog)
+  // }, [id])
+
+  // For TasteWP Wordpress API Prod
   useEffect(() => {
-    fetch(`http://httplocalhost10005.local/wp-json/wp/v2/posts/${id}?_embed`)
+    fetch(`https://zealousrake.s2-tastewp.com/wp-json/wp/v2/posts/${id}?_embed`)
       .then(res => res.json())
       .then(setBlog)
+      .catch(err => console.error("Error fetching blog:", err))
   }, [id])
 
   if (!blog) {

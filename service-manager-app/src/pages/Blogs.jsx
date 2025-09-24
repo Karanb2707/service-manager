@@ -2,8 +2,9 @@ import { useEffect, useState } from "react"
 import BlogCard from "../components/BlogCard"
 
 export default function Blogs() {
-  const [blogs, setBlogs] = useState([])
-  const [query, setQuery] = useState("")
+  const [blogs, setBlogs] = useState([]);
+  const [query, setQuery] = useState("");
+  const [loading, setLoading] = useState(true);
 
   // For Local json file
   // useEffect(() => { 
@@ -52,7 +53,12 @@ export default function Blogs() {
           />
         </div>
 
-        {filtered.length > 0 ? (
+        {loading ? (
+          <div className="text-center py-12">
+            <div className="w-8 h-8 border-2 border-cyan-400 border-t-transparent rounded-full animate-spin mx-auto mb-4"></div>
+            <p className="text-gray-300 text-lg">Loading blogs...</p>
+          </div>
+        ) : filtered.length > 0 ? (
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {filtered.map(b => <BlogCard key={b.id} blog={b} />)}
           </div>

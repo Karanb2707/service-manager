@@ -2,9 +2,10 @@ import { useEffect, useState } from "react"
 import ServiceCard from "../components/ServiceCard"
 
 export default function Services() {
-  const [services, setServices] = useState([])
-  const [query, setQuery] = useState("")
-  const [category, setCategory] = useState("")
+  const [services, setServices] = useState([]);
+  const [query, setQuery] = useState("");
+  const [category, setCategory] = useState("");
+  const [loading, setLoading] = useState(true);
 
   // Local JSON Data
   // useEffect(() => { 
@@ -72,7 +73,11 @@ export default function Services() {
           </select>
         </div>
 
-        {filtered.length > 0 ? (
+        {loading ? (
+          <div className="flex justify-center py-12">
+            <div className="w-10 h-10 border-4 border-cyan-400 border-t-transparent rounded-full animate-spin"></div>
+          </div>
+        ) : filtered.length > 0 ? (
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {filtered.map(s => <ServiceCard key={s.id} service={s} />)}
           </div>

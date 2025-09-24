@@ -70,13 +70,14 @@ export default function Services() {
           <select
             value={category}
             onChange={e => setCategory(e.target.value)}
-            className="w-fit text-center bg-gray-900 border border-gray-700 text-white p-3 rounded-lg focus:border-cyan-400 focus:outline-none transition-colors appearance-none"
+            className="w-full sm:w-auto text-center bg-gray-900 border border-gray-700 text-white p-3 rounded-lg focus:border-cyan-400 focus:outline-none transition-colors appearance-none"
           >
             <option value="">All Categories</option>
             <option value="Massage">Massage</option>
             <option value="Skin Care">Skin Care</option>
             <option value="Wellness">Wellness</option>
           </select>
+
         </div>
 
         {loading ? (

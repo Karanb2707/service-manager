@@ -48,11 +48,13 @@ export default function ContactForm() {
             className="w-full p-2 rounded-lg bg-gray-900 border border-gray-700 focus:border-cyan-400 focus:ring-1 focus:ring-cyan-400 outline-none resize-none"
             required
           />
-          <div className="my-2">
-            <ReCAPTCHA
-              sitekey="6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI"
-              onChange={() => setCaptchaVerified(true)}
-            />
+          <div className="my-2 flex justify-center">
+            <div className="transform scale-90 sm:scale-100">
+              <ReCAPTCHA
+                sitekey="6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI"
+                onChange={() => setCaptchaVerified(true)}
+              />
+            </div>
           </div>
           <button
             type="submit"

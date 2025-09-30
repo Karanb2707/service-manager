@@ -8,14 +8,23 @@ export default function Services() {
   const [loading, setLoading] = useState(true);
 
   // Local JSON Data
-  // useEffect(() => { 
-  //   fetch("/services.json").then(res=>res.json()).then(setServices) 
-  // }, [])
+  useEffect(() => { 
+    fetch("/services.json")
+    .then(res=>res.json())
+    .then(data => {
+      setServices(data);
+      setLoading(false);
+    })
+    .catch(err => {
+      console.error("Failed to fetch services:", err);
+      setLoading(false);
+    })
+  }, [])
 
-  // const filtered = services.filter(s =>
-  //   (s.title.toLowerCase().includes(query.toLowerCase()) || s.description.toLowerCase().includes(query.toLowerCase())) &&
-  //   (category ? s.category === category : true)
-  // )
+  const filtered = services.filter(s =>
+    (s.title.toLowerCase().includes(query.toLowerCase()) || s.description.toLowerCase().includes(query.toLowerCase())) &&
+    (category ? s.category === category : true)
+  )
 
   // Fetch from WordPress REST API
   // useEffect(() => { 
@@ -32,25 +41,25 @@ export default function Services() {
   // )
 
   // Fetch from WordPress Prod
-  useEffect(() => {
-    fetch("https://zealousrake.s2-tastewp.com/wp-json/wp/v2/services?_embed")
-      .then(res => res.json())
-      .then(data => {
-        setServices(data);
-        setLoading(false);
-      })
-      .catch(err => {
-        console.error("Failed to fetch services:", err)
-        setLoading(false);
-      });
-  }, []);
+  // useEffect(() => {
+  //   fetch("https://zealousrake.s2-tastewp.com/wp-json/wp/v2/services?_embed")
+  //     .then(res => res.json())
+  //     .then(data => {
+  //       setServices(data);
+  //       setLoading(false);
+  //     })
+  //     .catch(err => {
+  //       console.error("Failed to fetch services:", err)
+  //       setLoading(false);
+  //     });
+  // }, []);
 
   // Filter services based on search query and category
-  const filtered = services.filter(s =>
-    ((s.title?.rendered.toLowerCase().includes(query.toLowerCase())) ||
-      (s.acf?.description?.toLowerCase().includes(query.toLowerCase()))) &&
-    (category ? s.acf?.category === category : true)
-  );
+  // const filtered = services.filter(s =>
+  //   ((s.title?.rendered.toLowerCase().includes(query.toLowerCase())) ||
+  //     (s.acf?.description?.toLowerCase().includes(query.toLowerCase()))) &&
+  //   (category ? s.acf?.category === category : true)
+  // );
 
   return (
     <div className="min-h-screen bg-black p-6 pt-20">

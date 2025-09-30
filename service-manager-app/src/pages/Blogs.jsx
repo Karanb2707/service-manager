@@ -7,11 +7,20 @@ export default function Blogs() {
   const [loading, setLoading] = useState(true);
 
   // For Local json file
-  // useEffect(() => { 
-  //   fetch("/blogs.json").then(res=>res.json()).then(setBlogs) 
-  // }, [])
+  useEffect(() => {
+    fetch("/blogs.json")
+      .then(res => res.json())
+      .then(data => {
+        setBlogs(data)
+        setLoading(false)
+      })
+      .catch(err => {
+        console.error("Error fetching blogs:", err)
+        setLoading(false)
+      })
+  }, [])
 
-  // const filtered = blogs.filter(b => b.title.toLowerCase().includes(query.toLowerCase()))
+  const filtered = blogs.filter(b => b.title.toLowerCase().includes(query.toLowerCase()))
 
   // For Wordpress API
   // useEffect(() => {
@@ -25,22 +34,22 @@ export default function Blogs() {
   // )
 
   // For TasteWP Wordpress API Prod
-  useEffect(() => {
-    fetch("https://zealousrake.s2-tastewp.com/wp-json/wp/v2/posts?_embed")
-      .then(res => res.json())
-      .then(data => {
-        setBlogs(data)
-        setLoading(false)
-      })
-      .catch(err => {
-        console.error("Error fetching blogs:", err)
-        setLoading(false)
-      })
-  }, [])
+  // useEffect(() => {
+  //   fetch("https://zealousrake.s2-tastewp.com/wp-json/wp/v2/posts?_embed")
+  //     .then(res => res.json())
+  //     .then(data => {
+  //       setBlogs(data)
+  //       setLoading(false)
+  //     })
+  //     .catch(err => {
+  //       console.error("Error fetching blogs:", err)
+  //       setLoading(false)
+  //     })
+  // }, [])
 
-  const filtered = blogs.filter(b =>
-    b.title.rendered.toLowerCase().includes(query.toLowerCase())
-  )
+  // const filtered = blogs.filter(b =>
+  //   b.title.rendered.toLowerCase().includes(query.toLowerCase())
+  // )
 
   return (
     <div className="min-h-screen bg-black p-6 pt-20">

@@ -4,6 +4,21 @@ import { useParams, Link } from "react-router-dom"
 export default function BlogDetails() {
   const { id } = useParams()
   const [blog, setBlog] = useState(null)
+  const [loading, setLoading] = useState(true)
+
+  useEffect(() => {
+    fetch("/blogs.json")
+      .then(res => res.json())
+      .then(data => {
+        const found = data.find(b => String(b.id) === id)
+        setBlog(found)
+        setLoading(false)
+      })
+      .catch(err => {
+        console.error("Error fetching blog:", err)
+        setLoading(false)
+      })
+  }, [id])
 
   // For Local Wordpress
   // useEffect(() => {
@@ -13,14 +28,15 @@ export default function BlogDetails() {
   // }, [id])
 
   // For TasteWP Wordpress API Prod
-  useEffect(() => {
-    fetch(`https://zealousrake.s2-tastewp.com/wp-json/wp/v2/posts/${id}?_embed`)
-      .then(res => res.json())
-      .then(setBlog)
-      .catch(err => console.error("Error fetching blog:", err))
-  }, [id])
+  // useEffect(() => {
+  //   fetch(`https://zealousrake.s2-tastewp.com/wp-json/wp/v2/posts/${id}?_embed`)
+  //     .then(res => res.json())
+  //     .then(setBlog)
+  //     .catch(err => console.error("Error fetching blog:", err))
+  // }, [id])
 
-  if (!blog) {
+
+  if (loading) {
     return (
       <div className="min-h-screen bg-black flex items-center justify-center">
         <div className="text-center">
@@ -31,7 +47,13 @@ export default function BlogDetails() {
     )
   }
 
-  const image = blog._embedded?.["wp:featuredmedia"]?.[0]?.source_url || "https://via.placeholder.com/800x400"
+  if (!blog) {
+    return (
+      <div className="min-h-screen bg-black flex items-center justify-center">
+        <p className="text-gray-400 text-lg">Blog not found.</p>
+      </div>
+    )
+  }
 
   return (
     <div className="min-h-screen bg-black">
@@ -45,27 +67,25 @@ export default function BlogDetails() {
 
         <div className="bg-gray-900 border border-gray-800 rounded-lg overflow-hidden shadow-xl">
           <img
-            src={image}
-            alt={blog.title.rendered}
+            src={blog.image || "https://via.placeholder.com/800x400"}
+            alt={blog.title}
             className="w-full h-64 md:h-80 object-cover"
           />
 
           <div className="p-8">
-            <h1
-              className="text-3xl md:text-4xl font-bold text-cyan-400 mb-4"
-              dangerouslySetInnerHTML={{ __html: blog.title.rendered }}
-            />
+            <h1 className="text-3xl md:text-4xl font-bold text-cyan-400 mb-4">
+              {blog.title}
+            </h1>
 
             <div className="flex items-center gap-4 text-gray-400 text-sm mb-6 border-b border-gray-700 pb-4">
-              <span>By Admin</span>
+              <span>By {blog.author || "Admin"}</span>
               <span>•</span>
-              <span>{new Date(blog.date).toLocaleDateString()}</span>
+              <span>{blog.date}</span>
             </div>
 
-            <div
-              className="prose prose-invert max-w-none text-gray-300 leading-relaxed text-lg"
-              dangerouslySetInnerHTML={{ __html: blog.content.rendered }}
-            />
+            <div className="prose prose-invert max-w-none text-gray-300 leading-relaxed text-lg">
+              {blog.content}
+            </div>
           </div>
         </div>
       </div>
